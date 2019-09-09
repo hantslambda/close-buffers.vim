@@ -111,7 +111,7 @@ endfunction
 
 function! s:CloseBuffersMenu(bang)
   let choice = confirm("Delete Buffers?", s:confirm_string, 1)
-  let function_name = s:letter_to_function_name[s:menu_option_letters[choice - 1]]
+  let function_name = ( choice > 0 ) ? s:letter_to_function_name[s:menu_option_letters[choice - 1]] : ''
   if function_name != ''
     execute 'call s:' . function_name  . '('. a:bang . ')'
   endif
